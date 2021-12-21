@@ -10,13 +10,13 @@
 Summary:	Full standard library replacement for OCaml
 Summary(pl.UTF-8):	Pełny zamiennik biblioteki standardowej dla OCamla
 Name:		ocaml-base
-Version:	0.14.1
+Version:	0.14.2
 Release:	1
 License:	MIT
 Group:		Libraries
 #Source0Download: https://github.com/janestreet/base/releases
 Source0:	https://github.com/janestreet/base/archive/v%{version}/base-%{version}.tar.gz
-# Source0-md5:	e4419eae60f57e553b154856f0cacf42
+# Source0-md5:	0d1a2d0322b8c446e5dda20290112e5c
 URL:		https://opensource.janestreet.com/base/
 BuildRequires:	ocaml >= 1:4.07.0
 BuildRequires:	ocaml-dune-devel >= 2.0.0
@@ -124,10 +124,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%{_libdir}/ocaml/base/libbase_stubs.a
 %{_libdir}/ocaml/base/*.cmi
 %{_libdir}/ocaml/base/*.cmt
 %{_libdir}/ocaml/base/*.cmti
 %{_libdir}/ocaml/base/*.mli
+%{_libdir}/ocaml/base/base_internalhash_types/libbase_internalhash_types_stubs.a
 %{_libdir}/ocaml/base/base_internalhash_types/*.cmi
 %{_libdir}/ocaml/base/base_internalhash_types/*.cmt
 %{_libdir}/ocaml/base/caml/*.cmi
@@ -141,19 +143,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/ocaml/base/shadow_stdlib/*.cmti
 %{_libdir}/ocaml/base/shadow_stdlib/*.mli
 %if %{with ocaml_opt}
-%{_libdir}/ocaml/base/*.a
+%{_libdir}/ocaml/base/base.a
 %{_libdir}/ocaml/base/*.cmx
 %{_libdir}/ocaml/base/*.cmxa
-%{_libdir}/ocaml/base/base_internalhash_types/*.a
+%{_libdir}/ocaml/base/base_internalhash_types/base_internalhash_types.a
 %{_libdir}/ocaml/base/base_internalhash_types/*.cmx
 %{_libdir}/ocaml/base/base_internalhash_types/*.cmxa
-%{_libdir}/ocaml/base/caml/*.a
+%{_libdir}/ocaml/base/caml/caml.a
 %{_libdir}/ocaml/base/caml/*.cmx
 %{_libdir}/ocaml/base/caml/*.cmxa
-%{_libdir}/ocaml/base/md5/*.a
+%{_libdir}/ocaml/base/md5/md5_lib.a
 %{_libdir}/ocaml/base/md5/*.cmx
 %{_libdir}/ocaml/base/md5/*.cmxa
-%{_libdir}/ocaml/base/shadow_stdlib/*.a
+%{_libdir}/ocaml/base/shadow_stdlib/shadow_stdlib.a
 %{_libdir}/ocaml/base/shadow_stdlib/*.cmx
 %{_libdir}/ocaml/base/shadow_stdlib/*.cmxa
 %endif
