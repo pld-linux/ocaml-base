@@ -11,7 +11,7 @@ Summary:	Full standard library replacement for OCaml
 Summary(pl.UTF-8):	Pełny zamiennik biblioteki standardowej dla OCamla
 Name:		ocaml-base
 Version:	0.14.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 #Source0Download: https://github.com/janestreet/base/releases
@@ -89,7 +89,6 @@ dune install --destdir=$RPM_BUILD_ROOT
 # sources
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/ocaml/base/*.ml
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/ocaml/base/*/*.ml
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/ocaml/base/base_internalhash_types/*.h
 # packaged as %doc
 %{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc/base
 
@@ -132,6 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/ocaml/base/base_internalhash_types/libbase_internalhash_types_stubs.a
 %{_libdir}/ocaml/base/base_internalhash_types/*.cmi
 %{_libdir}/ocaml/base/base_internalhash_types/*.cmt
+%{_libdir}/ocaml/base/base_internalhash_types/*.h
 %{_libdir}/ocaml/base/caml/*.cmi
 %{_libdir}/ocaml/base/caml/*.cmt
 %{_libdir}/ocaml/base/md5/*.cmi
